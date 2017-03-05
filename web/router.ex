@@ -19,6 +19,12 @@ defmodule Web.Router do
     get "/", PageController, :index
   end
 
+  scope "/tasks", Web do
+    pipe_through :browser
+
+    resource "/tasks", TaskController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Web do
   #   pipe_through :api
