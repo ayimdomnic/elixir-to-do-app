@@ -17,13 +17,10 @@ defmodule Web.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/task", TaskController
+    resources "/blogs", BlogController
   end
 
-  scope "/tasks", Web do
-    pipe_through :browser
-
-    resource "/tasks", TaskController
-  end
 
   # Other scopes may use custom stacks.
   # scope "/api", Web do
